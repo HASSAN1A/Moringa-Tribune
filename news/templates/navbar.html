@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'newsToday' %}">The Moringa Tribune</a>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'newsToday' %}">The Moringa Tribune</a>
+    </div>
 
-      <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+    <!-- Adding a search form  -->
+    <div class="col-sm-4 col-md-4 navbar-right">
 
         <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
@@ -25,9 +25,9 @@
           </div>
 
         </form>
-      </div>
-      <!-- search form end -->
     </div>
-  </nav>
+      <!-- search form end -->
+  </div>
+</nav>
 </body>
 </html>
