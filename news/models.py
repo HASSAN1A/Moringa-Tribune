@@ -13,7 +13,7 @@ class Editor(models.Model):
         return self.first_name
 
     class Meta:
-        ordering = ['first_name']    
+        ordering = ['first_name']
 
     def save_editor(self):
         self.save()    
