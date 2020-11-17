@@ -1,7 +1,6 @@
 asgiref==3.3.1
 autopep8==1.5.4
 beautifulsoup4==4.9.3
-bootstrap4==0.1.0
 config==0.5.0.post0
 dj-database-url==0.5.0
 Django==3.1.3
