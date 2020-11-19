@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns=[
     url(r'^article/(\d+)',views.article,name ='article'),
     url('^$',views.news_of_day,name='newsToday'),
