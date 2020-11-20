@@ -6,7 +6,32 @@ from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
 from .forms import NewArticleForm, NewsLetterForm
 
-def news_today(request):
+# def news_today(request):
+#     date = dt.date.today()
+#     news = Article.todays_news()
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
+
+#             recipient = NewsLetterRecipients(name = name,email =email)
+#             recipient.save()
+#             send_welcome_email(name,email)
+
+#             HttpResponseRedirect('news_today')
+#     else:
+#         form = NewsLetterForm()
+#     print("news", news)
+#     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
+
+# Create your views here.
+def welcome(request):
+    return render(request, 'welcome.html')
+
+def news_of_day(request):
+    date = dt.date.today()
+    news = Article.todays_news()
     if request.method == 'POST':
         form = NewsLetterForm(request.POST)
         if form.is_valid():
@@ -20,21 +45,7 @@ def news_today(request):
             HttpResponseRedirect('news_today')
     else:
         form = NewsLetterForm()
-    return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
-
-# Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
-
-def news_of_day(request):
-    date = dt.date.today()
-    news = Article.todays_news()
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            print('valid')
-    else:
-        form = NewsLetterForm()
+    print("news", news)
     return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
 
 
@@ -99,10 +110,11 @@ def new_article(request):
     if request.method == 'POST':
         form = NewArticleForm(request.POST, request.FILES)
         if form.is_valid():
+            print("form is valid")
             article = form.save(commit=False)
             article.editor = current_user
             article.save()
-        return redirect('NewsToday')
+        return redirect('newsToday')
 
     else:
         form = NewArticleForm()
