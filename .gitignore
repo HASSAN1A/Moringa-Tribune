@@ -22,7 +22,8 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
-
+virtual/
+jvirtual/
 # Other files and folders
 .settings/
 
